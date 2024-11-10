@@ -11,7 +11,7 @@ const PlayerContextProvider = (props) => {
   const seekBar = useRef();
 
   // const url = "http://localhost:4000";
-  const url = import.meta.VITE_BACKEND_URL;
+  const url = import.meta.env.VITE_BACKEND_URL;
 
   const [songsData, setSongsData] = useState([]);
   const [albumsData, setAlbumsData] = useState([]);
