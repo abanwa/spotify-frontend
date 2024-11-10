@@ -1,11 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHistory } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 function Sidebar() {
-  const navigate = useNavigate();
-
   // const admin_panel = "http://localhost:5173/";
   const adminUrl = import.meta.env.VITE_ADMIN_URL;
+  const navigate = useNavigate();
+  const history = useHistory(); // Initialize history
+
+  const goToAdminPage = () => {
+    history.push(adminUrl); // Navigate to adminUrl entirely
+  };
+
   return (
     <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
       <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
@@ -17,7 +22,7 @@ function Sidebar() {
           <p className="font-bold">Home</p>
         </div>
         <div
-          onClick={() => navigate(`${adminUrl}`)}
+          onClick={goToAdminPage}
           className="flex items-center gap-3 pl-8 cursor-pointer"
         >
           <img src={assets.home_icon} className="w-6" alt="admin_icon" />
