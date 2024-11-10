@@ -1,14 +1,13 @@
-import { useNavigate, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 function Sidebar() {
   // const admin_panel = "http://localhost:5173/";
   const adminUrl = import.meta.env.VITE_ADMIN_URL;
   const navigate = useNavigate();
-  const history = useHistory(); // Initialize history
 
   const goToAdminPage = () => {
-    history.push(adminUrl); // Navigate to adminUrl entirely
+    window.open(adminUrl, "_blank"); // Open adminUrl in a new tab
   };
 
   return (
